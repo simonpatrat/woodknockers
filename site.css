@@ -356,6 +356,7 @@ button.button-primary:focus {
   color: #fff;
   background-color: #bd8a5c;
   border-color: #bd8a5c;
+    
 }
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
@@ -626,6 +627,16 @@ figcaption {
 .centered-text {
   text-align: center;
 }
+@media (min-width: 820px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+@media (max-width: 820px) {
+  .hidden-phone {
+    display: none;
+  }
+}
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -695,6 +706,7 @@ figcaption {
   padding: 20px 30px 20px 30px;
   min-width: 150px;
   display: inline-block;
+    
   text-transform: uppercase;
 }
 .separator {
@@ -802,6 +814,7 @@ blockquote {
   #site-navigation.minified ul {
     float: none;
     clear: both;
+    display: none;
   }
   #site-navigation ul:before,
   #site-navigation.minified ul:before {
@@ -818,6 +831,61 @@ blockquote {
   #site-navigation.minified ul li a {
     line-height: 60px;
   }
+}
+.nav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  z-index: 3000;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+}
+.nav-btn div {
+  width: 32px;
+  height: 4px;
+  margin: auto;
+  background: #000;
+  position: relative;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+.nav-btn div:first-child {
+  margin-top: 11px;
+}
+.nav-btn div + div {
+  margin-top: 5px;
+}
+.nav-btn.is-showing-nav {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-animation: navButtonAnimation 400ms forwards;
+  animation: navButtonAnimation 400ms forwards;
+}
+.nav-btn.is-showing-nav div {
+  margin: 0;
+  -webkit-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+.nav-btn.is-showing-nav div:nth-child(1) {
+  -webkit-transform: translate(5px, 19px) rotate(-45deg);
+  -ms-transform: translate(5px, 19px) rotate(-45deg);
+  transform: translate(5px, 19px) rotate(-45deg);
+}
+.nav-btn.is-showing-nav div:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: all 50ms ease;
+  transition: all 50ms ease;
+}
+.nav-btn.is-showing-nav div:nth-child(3) {
+  -webkit-transform: translate(5px, 11px) rotate(45deg);
+  -ms-transform: translate(5px, 11px) rotate(45deg);
+  transform: translate(5px, 11px) rotate(45deg);
+}
+.nav-btn:hover div {
+  color: #bd8a5c;
 }
 #site-header {
   width: 100%;
@@ -1205,7 +1273,7 @@ blockquote {
   z-index: 1000000;
   top: 0;
   left: 0;
-  botttom: 0;
+  bottom: 0;
   right: 0;
   background: #000;
   -webkit-transition: all 400ms ease;
@@ -1245,5 +1313,17 @@ blockquote {
   50% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
+  }
+}
+@-webkit-keyframes navButtonAnimation {
+  50% {
+    -webkit-transform: scale(0.01);
+    transform: scale(0.01);
+  }
+}
+@keyframes navButtonAnimation {
+  50% {
+    -webkit-transform: scale(0.01);
+    transform: scale(0.01);
   }
 }

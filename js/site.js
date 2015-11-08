@@ -36,6 +36,7 @@
 
 
     $(document).ready(function() {
+        
         $('.loader-container').addClass('loaded');
         $(".loader-container").one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
         function() {
@@ -55,15 +56,15 @@
                 cellAlign: 'left',
                 contain: true
             });
-            $('.featured-products-gallery').flickity({
+            
+            // uncomment lines below to activate flickity slider onto featured products
+            // Make shure you have uncommented (or added your own) the featured products html into "home.html"
+/*            $('.featured-products-gallery').flickity({
                 cellAlign: 'center',
                 contain: true
-            });
+            });*/
          
         });
-        
-
-        
         
         
         headerH = $('.site-header').height();
@@ -76,6 +77,26 @@
                 $('#site-navigation').addClass('minified');
             }else{
                 $('#site-navigation').removeClass('minified');
+            }
+        });
+        
+        
+        // Navigation toggle on .nav-btn or .toggle-nav click
+        $('.nav-btn, .toggle-nav').on('click', function(event) {
+            event.stopPropagation();
+           
+
+            if($('#site-navigation ul').hasClass('visible')){
+                $('#site-navigation ul').removeClass('visible');
+                $(this).removeClass('is-showing-nav');
+                $('#site-navigation ul').slideUp(200);
+      
+
+            }else{
+                $('#site-navigation ul').addClass('visible');
+                $(this).addClass('is-showing-nav');
+                $('#site-navigation ul').slideDown(200);           
+             
             }
         });
  

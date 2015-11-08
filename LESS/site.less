@@ -71,6 +71,19 @@ figure, figcaption{
     text-align: center;
 }
 
+@media (min-width: 820px){
+   .hidden-desktop{
+       display: none;
+   } 
+}
+
+@media (max-width: 820px){
+   .hidden-phone{
+       display: none;
+   } 
+}
+
+
 
 /// Video players
 
@@ -274,7 +287,7 @@ blockquote{
         ul{
             float: none;
             clear: both;
-            
+            display: none;
             
             &:before{
                 content: '';
@@ -289,9 +302,73 @@ blockquote{
                     line-height: 60px;
                 }
             }
+            
+            &.visible{
+         
+            }
         }
     }
     
+}
+
+.nav-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    z-index: 3000;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    
+    
+    div{
+        width: 32px;
+        height: 4px;
+        margin: auto;
+        background: #000;
+        position: relative;
+        transition: all 400ms ease-out;
+        
+        &:first-child{
+            margin-top: 11px;
+        }
+    }
+    
+    div + div{
+        margin-top: 5px;
+    }
+    
+    &.is-showing-nav{
+        transform: rotate(90deg);
+        animation: navButtonAnimation 400ms forwards;
+        
+        div{
+            //background: #fff;
+            margin:0;
+            transition: all 400ms ease-out;
+
+            &:nth-child(1){
+               transform: translate(5px,19px) rotate(-45deg);
+            }
+            
+            &:nth-child(2){
+                opacity:0;
+                transition: all 50ms ease;
+            }
+            &:nth-child(3){
+               transform:  translate(5px,11px) rotate(45deg)
+            }            
+            
+        }
+    }
+    
+    &:hover{
+        div{
+            color: @color1;
+        }
+            
+    }
 }
 
 /// Site header
@@ -770,7 +847,7 @@ blockquote{
     z-index: 1000000;
     top: 0;
     left: 0;
-    botttom: 0;
+    bottom: 0;
     right: 0;
     background: #000;
     
@@ -803,5 +880,11 @@ blockquote{
 @keyframes loaderAnim1{
     50%{
         transform: scale(0.5);
+    }
+}
+
+@keyframes navButtonAnimation{
+    50%{
+        transform: scale(0.01);
     }
 }
