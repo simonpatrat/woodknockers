@@ -34,15 +34,15 @@
 
         }
 
-    //$('#site-navigation, #site-header, .site-container').addClass('invisible');
+
     $(document).ready(function() {
         $('.loader-container').addClass('loaded');
         $(".loader-container").one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
         function() {
-         $(this).hide();
-/*        setTimeout(function(){
-            $('#site-navigation, #site-header, .site-container').removeClass('invisible');
-        },500);*/
+            
+            // Hide loader
+            $(this).hide();
+
             // Masonry showcase
             $('.showcase-grid-inner').masonry({
               // options
