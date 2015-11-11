@@ -35,37 +35,43 @@
 
         }
 
-// Masonry showcase
-$('.showcase-grid-inner').masonry({
-  // options
-  itemSelector: '.sc-grid-bloc',
-  columnWidth: '.grid-sizer',     
-});
+$('.site-container').imagesLoaded( function() {
+    // When images have loaded
+    
+    // Masonry showcase
+    $('.showcase-grid-inner').masonry({
+      // options
+      itemSelector: '.sc-grid-bloc',
+      columnWidth: '.grid-sizer',     
+    });
 
-// Flickity carousel
-$('.showcase-carousel .gallery').flickity({
-    cellAlign: 'left',
-    contain: true
-});
+    // Flickity carousel
+    $('.showcase-carousel .gallery').flickity({
+        cellAlign: 'left',
+        contain: true
+    });
 
-// uncomment lines below to activate flickity slider onto featured products
-// Make shure you have uncommented (or added your own) the featured products html into "home.html"
-/*            $('.featured-products-gallery').flickity({
-    cellAlign: 'center',
-    contain: true
-});*/        
+    // uncomment lines below to activate flickity slider onto featured products
+    // Make shure you have uncommented (or added your own) the featured products html into "home.html"
+    /*            $('.featured-products-gallery').flickity({
+        cellAlign: 'center',
+        contain: true
+    });*/ 
+    
+    $('.loader-container').addClass('loaded');
+    $(".loader-container").one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+    function() {
+
+        // Hide loader
+        $(this).hide();
+
+
+    });
+        
+});        
+       
 
     $(document).ready(function() {
-        
-        $('.loader-container').addClass('loaded');
-        $(".loader-container").one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
-        function() {
-            
-            // Hide loader
-            $(this).hide();
-
-         
-        });
         
         
         headerH = $('.site-header').height();
