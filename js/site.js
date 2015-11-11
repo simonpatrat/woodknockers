@@ -20,20 +20,40 @@
           if (video.paused == true) {
             // Play the video
             video.play();
-
+              $(".video-container, #play-pause").addClass('isPlaying');
             // Update the button text to 'Pause'
-            playButton.innerHTML = "Pause";
+            //playButton.innerHTML = "Pause";
+              
           } else {
             // Pause the video
             video.pause();
-
+              $(".video-container, #play-pause").removeClass('isPlaying');
             // Update the button text to 'Play'
-            playButton.innerHTML = "Play";
+           //playButton.innerHTML = "Play";
           }
         });
 
         }
 
+// Masonry showcase
+$('.showcase-grid-inner').masonry({
+  // options
+  itemSelector: '.sc-grid-bloc',
+  columnWidth: '.grid-sizer',     
+});
+
+// Flickity carousel
+$('.showcase-carousel .gallery').flickity({
+    cellAlign: 'left',
+    contain: true
+});
+
+// uncomment lines below to activate flickity slider onto featured products
+// Make shure you have uncommented (or added your own) the featured products html into "home.html"
+/*            $('.featured-products-gallery').flickity({
+    cellAlign: 'center',
+    contain: true
+});*/        
 
     $(document).ready(function() {
         
@@ -44,25 +64,6 @@
             // Hide loader
             $(this).hide();
 
-            // Masonry showcase
-            $('.showcase-grid-inner').masonry({
-              // options
-              itemSelector: '.sc-grid-bloc',
-              columnWidth: '.grid-sizer',     
-            });
-
-            // Flickity carousel
-            $('.showcase-carousel .gallery').flickity({
-                cellAlign: 'left',
-                contain: true
-            });
-            
-            // uncomment lines below to activate flickity slider onto featured products
-            // Make shure you have uncommented (or added your own) the featured products html into "home.html"
-/*            $('.featured-products-gallery').flickity({
-                cellAlign: 'center',
-                contain: true
-            });*/
          
         });
         
